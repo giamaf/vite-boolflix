@@ -4,7 +4,8 @@ export default {
     name: 'AppCard',
     props: {
         items: Object,
-        poster: Object
+        poster: Object,
+        notImage: String
     },
     computed: {
 
@@ -24,12 +25,11 @@ export default {
         // Funzione per montare l'URL della copertina
         cardImageUrl() {
             const cardUrl = new URL(`${this.poster.baseUrl}${this.poster.dimension}${this.items.poster_path}`, import.meta.url);
-
             return cardUrl.href
         },
 
         // Funzione per trasformare il voto in base 5 arrotondato
-        voteShape() {
+        voteShaped() {
             const voteRounded = this.items.vote_average / 2;
             return Math.round(voteRounded);
         }
@@ -38,9 +38,9 @@ export default {
 </script>
  
 <template>
-    <div class="card mb-3">
-        <img :src="cardImageUrl" class="card-img-top" alt="...">
-        <div class="card-body">
+    <div class="card">
+        <img :src="cardImageUrl" alt="...">
+        <div class="card-body d-none">
             <ul>
                 <li class="card-title">{{ items.title || items.name }}</li>
                 <li class="card-text">{{ items.original_title || items.original_name }}</li>
@@ -48,7 +48,7 @@ export default {
                     <img class="flag" v-if="hasFlag" :src="imagePath" :alt="items.original_language">
                     <span v-else>{{ items.original_language }}</span>
                 </li>
-                <li class="card-text">{{ voteShape }}</li>
+                <li class="card-text">{{ voteShaped }}</li>
             </ul>
         </div>
     </div>
@@ -57,8 +57,21 @@ export default {
 <style lang="scss" scoped>
 /* Style */
 .card {
+    padding: 0;
+    border: 0;
+    background-color: black;
+
+    &:hover {
+        cursor: pointer;
+        filter: contrast(0.7);
+    }
+
     img {
-        max-width: 300px;
+        width: auto;
+        height: 350px;
+        border: 1px solid transparent;
+        border-radius: 5px;
+
     }
 }
 
@@ -66,6 +79,5 @@ export default {
     .flag {
         max-width: 50px;
     }
-
 }
 </style>

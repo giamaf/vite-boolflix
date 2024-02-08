@@ -9,7 +9,7 @@ const api = {
 
 const poster = {
     baseUrl: 'https://image.tmdb.org/t/p/',
-    dimension: 'w342',
+    dimension: 'original',
 }
 
 export { api, poster };

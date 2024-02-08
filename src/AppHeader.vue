@@ -34,11 +34,11 @@ export default {
                 <div class="right">
                     <ul>
                         <li>
-                            <AppSearch button-label="Cerca" placeholder="Cerca" @send-form="$emit('search-item', $event)"
-                                @live-text="$emit('live-text', $event)" />
+                            <AppSearch button-label="Cerca" placeholder="Titoli, persone, generi"
+                                @send-form="$emit('search-item', $event)" @live-text="$emit('live-text', $event)" />
                         </li>
                         <li><a href="#">Bambini</a></li>
-                        <li><a href="#"><i class="fa-brands fa-github"></i></a></li>
+                        <li><a href="#"><i class="fa-regular fa-bell"></i></a></li>
                         <li><a href="#"><i class="fa-brands fa-github"></i></a></li>
                     </ul>
 
@@ -50,11 +50,19 @@ export default {
  
 <style lang="scss" scoped>
 /* Style */
+header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+}
+
 .nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px;
+    padding: 20px 24px;
     font-size: 0.7rem;
     background-color: black;
 
@@ -69,8 +77,12 @@ export default {
 
     }
 
+    .fa-bell {
+        font-size: 1rem;
+    }
+
     a {
-        color: white;
+        color: whitesmoke;
     }
 }
 </style>
