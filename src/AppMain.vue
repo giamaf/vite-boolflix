@@ -12,7 +12,7 @@ export default {
 
     components: { AppGridItem },
 
-    emits: ['search-movies', 'search-series']
+    emits: ['search-item']
 
 };
 </script>
@@ -22,11 +22,11 @@ export default {
         <div class="container-fluid">
             <section>
                 <h2>Movies</h2>
-                <AppGridItem @search-item="$emit('search-movies')" :collection="store.movies" />
+                <AppGridItem @search-item="$emit('search-item')" :collection="store.movies" />
             </section>
             <section>
                 <h2>Series</h2>
-                <AppGridItem @search-item="$emit('search-series')" :collection="store.series" />
+                <AppGridItem @search-item="$emit('search-item')" :collection="store.series" />
             </section>
         </div>
     </main>

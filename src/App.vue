@@ -18,42 +18,41 @@ export default {
 
   methods: {
     // Funzione per montare l'url API
-    getApiUrl() {
-
-    },
-
-    // Funzione per caricare i dati nello store
-    fetchData(endpoint) {
-      axios.get(endpoint).then(res => {
-        store.movies = res.data.results;
-      }).catch((err) => {
-        console.error(err)
-      })
-    },
-
-    // Funzione per monitorare live il testo della searchbar
-    watchLiveText(text) {
-      this.liveText = text
-    },
-
-    // Funzione per fare qualcosa all'invio del form (chiamata API)
-    searchMovies() {
-      const { baseUri, moviesEndpoint, seriesEndpoint, apiKey, langIta, langEng } = api
-
+    fetchApi(endpoint, collection) {
       // Oggetto che passiamo come secondo parametro al GET della chiamata API
+      const { baseUri, moviesEndpoint, seriesEndpoint, apiKey, langIta, langEng } = api;
       const params = {
         query: this.liveText,
         api_key: apiKey,
         language: langIta
       }
 
-      axios.get(`${baseUri}${moviesEndpoint}`, { params })
+      axios.get(`${baseUri}${endpoint}`, { params })
         .then(res => {
-          store.movies = res.data.results;
+          store[collection] = res.data.results;
         }).catch((err) => {
           console.error(err)
         })
-    }
+    },
+
+    // Funzione per fare qualcosa all'invio del form (chiamata API)
+    searchItems() {
+      if (!this.liveText) {
+        store.movies = [];
+        store.series = [];
+        return;
+      }
+
+      this.fetchApi(api.moviesEndpoint, 'movies');
+      this.fetchApi(api.seriesEndpoint, 'series');
+    },
+
+
+    // Funzione per monitorare live il testo della searchbar
+    watchLiveText(text) {
+      this.liveText = text
+    },
+
   }
 
 }
@@ -61,8 +60,8 @@ export default {
  
 <template>
   <!-- Template -->
-  <AppHeader @search-item="searchMovies" @live-text="watchLiveText" />
-  <AppMain @search-movies="searchMovies" @search-series="" />
+  <AppHeader @search-item="searchItems" @live-text="watchLiveText" />
+  <AppMain @search-item="searchItems" />
 </template>
  
 <style lang="scss" >
