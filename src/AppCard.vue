@@ -1,12 +1,21 @@
 <script>
 export default {
     // Javascript Logic
-    name: 'AppCard'
+    name: 'AppCard',
+
+    props: {
+
+    }
 };
 </script>
  
 <template>
-    <!-- Template -->
+    <div class="card">
+        <p>Titolo Italiano</p>
+        <p>Titolo Originale</p>
+        <p>Lingua</p>
+        <p>Voto</p>
+    </div>
 </template>
  
 <style>

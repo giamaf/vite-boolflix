@@ -1,7 +1,7 @@
 <script>
 import axios from 'axios';
 import { store } from './assets/data/store';
-const endpoint = 'https://api.themoviedb.org/3/search/movie';
+import { api } from './assets/data/index'
 import AppHeader from './AppHeader.vue';
 import AppMain from './AppMain.vue';
 export default {
@@ -9,32 +9,27 @@ export default {
   name: 'Boolfix',
 
   data: () => ({
-    store
+    store,
   }),
 
-  components: {
-    AppHeader,
-    AppMain
-  },
+  components: { AppHeader, AppMain },
 
   methods: {
-    fetchMovies(endpoint) {
-      axios.get(endpoint).then(res => {
-        //Inserisco la risposta dell'API nello STORE
-        // store.movies = res.data.results;
-      })
+    searchItem(text) {
+      console.log('Hai scritto', text)
     }
   }
+
 }
 </script>
  
 <template>
   <!-- Template -->
-  <AppHeader />
+  <AppHeader @search-item="searchItem" />
   <AppMain />
 </template>
  
-<style lang="scss">
+<style lang="scss" >
 /* Style */
 @use './assets/scss/style.scss'
 </style>
