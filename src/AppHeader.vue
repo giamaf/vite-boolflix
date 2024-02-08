@@ -11,7 +11,7 @@ export default {
 
     components: { AppSearch },
 
-    emits: ['search-item']
+    emits: ['search-item', 'live-text']
 
 };
 </script>
@@ -33,7 +33,8 @@ export default {
             <div class="right">
                 <ul>
                     <li>
-                        <AppSearch button-label="Cerca" placeholder="Cerca" @send-form="$emit('search-item', $event)" />
+                        <AppSearch button-label="Cerca" placeholder="Cerca" @send-form="$emit('search-item', $event)"
+                            @live-text="$emit('live-text', $event)" />
                     </li>
                     <li><a href="#">Bambini</a></li>
                     <li><a href="#"><i class="fa-brands fa-github"></i></a></li>

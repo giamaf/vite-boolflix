@@ -4,17 +4,17 @@ export default {
     name: 'AppCard',
 
     props: {
-
+        items: Object
     }
 };
 </script>
  
 <template>
     <div class="card">
-        <p>Titolo Italiano</p>
-        <p>Titolo Originale</p>
-        <p>Lingua</p>
-        <p>Voto</p>
+        <p>{{ items.title }}</p>
+        <p>{{ items.original_title }}</p>
+        <p>{{ items.original_language }}</p>
+        <p>{{ items.vote_average }}</p>
     </div>
 </template>
  

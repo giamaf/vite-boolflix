@@ -7,10 +7,12 @@ export default {
     name: 'AppMain',
 
     data: () => ({
-        store
+        store,
     }),
 
     components: { AppGridItem },
+
+    emits: ['search-movies', 'search-series']
 
 };
 </script>
@@ -18,14 +20,13 @@ export default {
 <template>
     <main>
         <div class="container-fluid">
-
             <section>
                 <h2>Movies</h2>
-                <AppGridItem />
+                <AppGridItem @search-item="$emit('search-movies')" :collection="store.movies" />
             </section>
             <section>
                 <h2>Series</h2>
-                <AppGridItem />
+                <AppGridItem @search-item="$emit('search-series')" :collection="store.series" />
             </section>
         </div>
     </main>

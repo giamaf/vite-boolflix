@@ -7,7 +7,7 @@ export default {
         textSearched: '',
     }),
 
-    emits: ['send-form'],
+    emits: ['send-form', 'live-text'],
 
     props: {
         buttonLabel: String,
@@ -18,7 +18,8 @@ export default {
  
 <template>
     <form @submit.prevent="$emit('send-form', textSearched)">
-        <input class="form-control" type="text" :placeholder="placeholder" v-model="textSearched">
+        <input @keyup="$emit('live-text', textSearched)" :placeholder="placeholder" v-model.trim="textSearched"
+            class="form-control" type="text">
         <button class="btn btn-secondary">{{ buttonLabel }}</button>
     </form>
 </template>

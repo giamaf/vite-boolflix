@@ -7,14 +7,18 @@ export default {
 
     components: { AppCard },
 
+    props: {
+        collection: Array
+    }
+
 
 };
 </script>
  
 <template>
     <div class="row">
-        <div class="col-auto">
-            <AppCard />
+        <div class="col-auto" v-for="item in collection" :key="item.id">
+            <AppCard :items="item" />
         </div>
     </div>
 </template>
