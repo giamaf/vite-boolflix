@@ -8,7 +8,8 @@ export default {
     components: { AppCard },
 
     props: {
-        collection: Array
+        collection: Array,
+        poster: Object,
     }
 
 
@@ -18,7 +19,7 @@ export default {
 <template>
     <div class="row">
         <div class="col-auto" v-for="item in collection" :key="item.id">
-            <AppCard :items="item" />
+            <AppCard :items="item" :poster="poster" />
         </div>
     </div>
 </template>

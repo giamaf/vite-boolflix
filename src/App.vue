@@ -11,7 +11,7 @@ export default {
   data: () => ({
     store,
     api,
-    liveText: ''
+    liveText: '',
   }),
 
   components: { AppHeader, AppMain },
@@ -46,7 +46,6 @@ export default {
       this.fetchApi(api.moviesEndpoint, 'movies');
       this.fetchApi(api.seriesEndpoint, 'series');
     },
-
 
     // Funzione per monitorare live il testo della searchbar
     watchLiveText(text) {

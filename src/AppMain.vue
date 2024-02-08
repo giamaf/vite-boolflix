@@ -1,5 +1,6 @@
 <script>
 import { store } from './assets/data/store';
+import { poster } from './assets/data/index';
 import AppGridItem from './AppGridItem.vue';
 
 export default {
@@ -8,6 +9,7 @@ export default {
 
     data: () => ({
         store,
+        poster
     }),
 
     components: { AppGridItem },
@@ -22,11 +24,11 @@ export default {
         <div class="container-fluid">
             <section>
                 <h2>Movies</h2>
-                <AppGridItem @search-item="$emit('search-item')" :collection="store.movies" />
+                <AppGridItem @search-item="$emit('search-item')" :collection="store.movies" :poster="poster" />
             </section>
             <section>
                 <h2>Series</h2>
-                <AppGridItem @search-item="$emit('search-item')" :collection="store.series" />
+                <AppGridItem @search-item="$emit('search-item')" :collection="store.series" :poster="poster" />
             </section>
         </div>
     </main>
