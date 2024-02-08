@@ -7,4 +7,9 @@ const api = {
     langEng: 'en-US',
 }
 
-export { api };
+const poster = {
+    baseUrl: 'https://image.tmdb.org/t/p/',
+    dimension: 'w342',
+}
+
+export { api, poster };
