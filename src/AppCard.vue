@@ -34,7 +34,7 @@ export default {
         voteShaped() {
             const voteRounded = this.items.vote_average / 2;
             return Math.round(voteRounded);
-        }
+        },
     }
 };
 </script>
@@ -80,7 +80,6 @@ export default {
         width: 240px;
         border: 1px solid transparent;
         border-radius: 5px;
-        object-fit: cover;
     }
 }
 
@@ -93,10 +92,13 @@ export default {
     left: 10px;
 
     .card-overview {
-        font-size: 0.4rem;
+        font-size: 0.6rem;
         font-style: italic;
         border-bottom: 1px solid grey;
         padding: 10px 0;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: overlay;
         filter: brightness(0.5);
     }
 
