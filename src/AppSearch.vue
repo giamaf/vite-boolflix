@@ -17,7 +17,7 @@ export default {
 </script>
  
 <template>
-    <form @submit.prevent="$emit('send-form', textSearched)">
+    <form @submit.prevent="$emit('send-form', textSearched)" name="search-form">
         <i class="fa-sharp fa-solid fa-magnifying-glass"></i>
         <input autofocus @keyup="$emit('live-text', textSearched)" :placeholder="placeholder" v-model.trim="textSearched"
             type="text">
