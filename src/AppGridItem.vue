@@ -10,7 +10,6 @@ export default {
     props: {
         collection: Array,
         poster: Object,
-        notImage: String
     }
 
 
@@ -20,7 +19,7 @@ export default {
 <template>
     <div class="row">
         <div class="col-auto p-0" v-for="item in collection" :key="item.id">
-            <AppCard :items="item" :poster="poster" :notImage="notImage" />
+            <AppCard :items="item" :poster="poster" />
         </div>
     </div>
 </template>

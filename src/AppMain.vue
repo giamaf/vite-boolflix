@@ -28,13 +28,11 @@ export default {
         <div v-else>
             <section class="movies">
                 <h2>Movies</h2>
-                <AppGridItem @search-item="$emit('search-item')" :collection="store.movies" :poster="poster"
-                    notImage="Copertina al momento non disponibile" />
+                <AppGridItem @search-item="$emit('search-item')" :collection="store.movies" :poster="poster" />
             </section>
             <section class="series">
                 <h2>Series</h2>
-                <AppGridItem @search-item="$emit('search-item')" :collection="store.series" :poster="poster"
-                    notImage="Copertina al momento non disponibile" />
+                <AppGridItem @search-item="$emit('search-item')" :collection="store.series" :poster="poster" />
             </section>
         </div>
 
@@ -44,11 +42,14 @@ export default {
 <style>
 /* Style */
 main {
+    color: white;
+
     section {
         margin: 0 0 30px 0;
     }
 
     h2 {
+        filter: brightness(0.9);
         color: whitesmoke;
     }
 
@@ -57,6 +58,8 @@ main {
         justify-content: center;
         align-items: center;
         height: 500px;
+        filter: brightness(0.5);
+
     }
 }
 </style>
