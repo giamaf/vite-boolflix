@@ -43,12 +43,10 @@ form {
 
     input {
         font-size: 0.7rem;
-        // height: 20px;
         background-color: black;
-        border: 1px solid white;
+        border: 1px solid whitesmoke;
         color: white;
         padding: 5px 20px 5px 27px;
-
     }
 
     button {

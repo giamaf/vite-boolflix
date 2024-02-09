@@ -15,7 +15,7 @@ const poster = {
     standardImage: 'https://static.vecteezy.com/ti/vettori-gratis/p1/4141669-nessuna-foto-o-immagine-vuota-icona-caricamento-immagini-o-mancante-immagine-segno-immagine-non-disponibile-o-immagine-in-arrivo-segno-semplice-natura-silhouette-in-frame-illustrazione-vettore-isolato-vettoriale.jpg'
 }
 
-const genres = {
+const genresApi = {
     baseGenUri: 'https://api.themoviedb.org/3',
     moviesGenEndpoint: '/genre/movie/list',
     seriesGenEndpoint: '/genre/tv/list',
@@ -23,4 +23,5 @@ const genres = {
     langGenIta: 'it',
     langGenEng: 'en',
 }
-export { items, poster, genres };
+
+export { items, poster, genresApi };

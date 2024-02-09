@@ -1,6 +1,7 @@
 <script>
-import { store } from './assets/data/store.js'
+import { store } from './assets/data/store.js';
 import AppSearch from './AppSearch.vue';
+import AppFilterSelect from './AppFilterSelect.vue';
 
 export default {
     // Javascript Logic
@@ -9,7 +10,11 @@ export default {
         store
     }),
 
-    components: { AppSearch },
+    components: { AppSearch, AppFilterSelect },
+
+    props: {
+        genres: Object
+    },
 
     emits: ['search-item', 'live-text']
 
@@ -33,6 +38,9 @@ export default {
                 </div>
                 <div class="right">
                     <ul>
+                        <li>
+                            <AppFilterSelect placeholder="Filtra per genere" :genres="genres" />
+                        </li>
                         <li>
                             <AppSearch button-label="Cerca" placeholder="Titoli, persone, generi"
                                 @send-form="$emit('search-item', $event)" @live-text="$emit('live-text', $event)" />
